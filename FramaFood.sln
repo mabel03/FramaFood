@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FramaFood", "FramaFood\FramaFood.csproj", "{D7D49019-300E-4BB1-9018-397364CD0753}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7D49019-300E-4BB1-9018-397364CD0753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7D49019-300E-4BB1-9018-397364CD0753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7D49019-300E-4BB1-9018-397364CD0753}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D7D49019-300E-4BB1-9018-397364CD0753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7D49019-300E-4BB1-9018-397364CD0753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7D49019-300E-4BB1-9018-397364CD0753}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30DEF5E8-E004-490C-9159-7B5AFB87515E}
+	EndGlobalSection
+EndGlobal
