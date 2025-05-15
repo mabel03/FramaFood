@@ -1,0 +1,21 @@
+# Archivos de compilación y salida
+bin/
+obj/
+Release/
+Debug/
+
+# Archivos específicos del usuario de Visual Studio
+*.user
+*.suo
+*.vs/
+
+# Paquetes de NuGet
+packages/
+
+# Archivos temporales del sistema operativo
+Thumbs.db
+.DS_Store
+
+# Otros directorios o archivos que quieras ignorar
+[NombreDeAlgunDirectorio]/
+[NombreDeAlgunArchivo].ext
