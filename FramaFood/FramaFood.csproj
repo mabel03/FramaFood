@@ -62,4 +62,11 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Mesera\" />
+	  <Folder Include="Cajera\" />
+	  <Folder Include="Chef\" />
+	  <Folder Include="Administrador\" />
+	</ItemGroup>
+
 </Project>
