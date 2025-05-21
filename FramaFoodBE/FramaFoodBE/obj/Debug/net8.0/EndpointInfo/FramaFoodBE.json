@@ -5,62 +5,26 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Chef": {
-      "get": {
-        "tags": [
-          "Chef"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
+    "/api/Mesas/CreaciarMesas": {
       "post": {
         "tags": [
-          "Chef"
+          "Mesas"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/Mesa"
               }
             },
             "text/json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/Mesa"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/Mesa"
               }
             }
           }
@@ -72,75 +36,26 @@
         }
       }
     },
-    "/api/Chef/{id}": {
-      "get": {
+    "/api/Mesas/EditarMesas": {
+      "post": {
         "tags": [
-          "Chef"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Chef"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
+          "Mesas"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/Mesa"
               }
             },
             "text/json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/Mesa"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/Mesa"
               }
             }
           }
@@ -150,22 +65,32 @@
             "description": "OK"
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/api/Mesas/EliminarMesas": {
+      "post": {
         "tags": [
-          "Chef"
+          "Mesas"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Mesa"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Mesa"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Mesa"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -173,12 +98,11 @@
         }
       }
     },
-    "/WeatherForecast": {
+    "/api/Mesas/ObtenerMesas": {
       "get": {
         "tags": [
-          "WeatherForecast"
+          "Mesas"
         ],
-        "operationId": "GetWeatherForecast",
         "responses": {
           "200": {
             "description": "OK",
@@ -187,7 +111,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
+                    "$ref": "#/components/schemas/Mesa"
                   }
                 }
               },
@@ -195,7 +119,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
+                    "$ref": "#/components/schemas/Mesa"
                   }
                 }
               },
@@ -203,7 +127,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/WeatherForecast"
+                    "$ref": "#/components/schemas/Mesa"
                   }
                 }
               }
@@ -215,24 +139,286 @@
   },
   "components": {
     "schemas": {
-      "WeatherForecast": {
+      "Detallepedido": {
         "type": "object",
         "properties": {
-          "date": {
-            "type": "string",
-            "format": "date"
-          },
-          "temperatureC": {
+          "iddetalle": {
             "type": "integer",
             "format": "int32"
           },
-          "temperatureF": {
+          "idpedido": {
             "type": "integer",
-            "format": "int32",
-            "readOnly": true
+            "format": "int32"
           },
-          "summary": {
+          "idplato": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idchef": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cantidad": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "estado": {
             "type": "string",
+            "nullable": true
+          },
+          "idchefNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          },
+          "idpedidoNavigation": {
+            "$ref": "#/components/schemas/Pedido"
+          },
+          "idplatoNavigation": {
+            "$ref": "#/components/schemas/Plato"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Factura": {
+        "type": "object",
+        "properties": {
+          "idfactura": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idpedido": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idcajera": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "montototal": {
+            "type": "number",
+            "format": "double"
+          },
+          "fechahora": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "metodopago": {
+            "type": "string",
+            "nullable": true
+          },
+          "idcajeraNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          },
+          "idpedidoNavigation": {
+            "$ref": "#/components/schemas/Pedido"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Mesa": {
+        "type": "object",
+        "properties": {
+          "idmesa": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numero": {
+            "type": "string",
+            "nullable": true
+          },
+          "cantidadSilla": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "pedidos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Pedido"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Pedido": {
+        "type": "object",
+        "properties": {
+          "idpedido": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idmesa": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idmesera": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechahora": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estado": {
+            "type": "string",
+            "nullable": true
+          },
+          "detallepedidos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Detallepedido"
+            },
+            "nullable": true
+          },
+          "facturas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Factura"
+            },
+            "nullable": true
+          },
+          "idmesaNavigation": {
+            "$ref": "#/components/schemas/Mesa"
+          },
+          "idmeseraNavigation": {
+            "$ref": "#/components/schemas/Usuario"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Plato": {
+        "type": "object",
+        "properties": {
+          "idplato": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "precio": {
+            "type": "number",
+            "format": "double"
+          },
+          "categoria": {
+            "type": "string",
+            "nullable": true
+          },
+          "detallepedidos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Detallepedido"
+            },
+            "nullable": true
+          },
+          "receta": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Receta"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Receta": {
+        "type": "object",
+        "properties": {
+          "idreceta": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idplato": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "instrucciones": {
+            "type": "string",
+            "nullable": true
+          },
+          "idplatoNavigation": {
+            "$ref": "#/components/schemas/Plato"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Role": {
+        "type": "object",
+        "properties": {
+          "idrol": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "usuarios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Usuario"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Usuario": {
+        "type": "object",
+        "properties": {
+          "idusuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idrol": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "usuariologin": {
+            "type": "string",
+            "nullable": true
+          },
+          "contrasena": {
+            "type": "string",
+            "nullable": true
+          },
+          "estado": {
+            "type": "boolean"
+          },
+          "detallepedidos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Detallepedido"
+            },
+            "nullable": true
+          },
+          "facturas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Factura"
+            },
+            "nullable": true
+          },
+          "idrolNavigation": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "pedidos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Pedido"
+            },
             "nullable": true
           }
         },

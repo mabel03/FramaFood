@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FramaFoodBE")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3905ffe78333a1adf672c9c8e5b42c097d3ef636")]
 [assembly: System.Reflection.AssemblyProductAttribute("FramaFoodBE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FramaFoodBE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

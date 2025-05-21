@@ -1,4 +1,5 @@
 using FramaFoodBE.Data;
+using FramaFoodBE.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DbFramafoodContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<ServiceGeneral>();
+
 
 var app = builder.Build();
 
