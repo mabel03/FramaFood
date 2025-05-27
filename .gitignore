@@ -1,5 +1,48 @@
 FramaFoodBE/FramaFoodBE/obj/
 FramaFoodBE/FramaFoodBE/bin/
+FramaFoodBE/.vs
+# Ignorar carpetas de compilación
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bin/
+obj/
+
+# Ignorar archivos del usuario de Visual Studio
+*.suo
+*.user
+*.opensdf
+*.sdf
+*.dbmdl
+*.vspscc
+*.vssscc
+*.vscc
+*.bsc
+*.sbr
+*.pch
+
+# Ignorar la carpeta .vs (nueva en VS2015+ pero puede aparecer)
+.vs/
+
+# Ignorar paquetes NuGet
+packages/
+*.nupkg
+# Si usas restauración de paquetes y no quieres versionar la carpeta "packages"
+# Comenta la línea de arriba si tu proyecto NO usa restauración de paquetes
+
+# Archivos de caché del IntelliSense y otros
+*.ncb
+*.res
+*.ide
+*.bak
+*.log
+*.docstates
+
+# Archivos de la web y de configuración de publicación (a menudo sensibles)
+*.publishsettings
+# Puedes añadir más según tu tipo de proyecto (por ejemplo, appsettings.Development.json)
+FramaFoodBE/FramaFoodBE/bin/
 FramaFood/FramaFoodBE/.vs/
 **/.vs/
 **/obj/
