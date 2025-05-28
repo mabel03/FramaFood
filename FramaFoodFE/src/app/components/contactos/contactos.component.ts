@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css'] 
+  selector: 'app-contactos',
+  imports: [],
+  templateUrl: './contactos.component.html',
+  styleUrl: './contactos.component.css'
 })
-export class MenuComponent implements OnInit {
-
+export class ContactosComponent {
   constructor(private router: Router) {} 
 
   ngOnInit(): void {
@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
   irMenu() {
    this.router.navigate(['/Menu']);
   }
-  
+
   irContactos() {
    this.router.navigate(['/Contactos']);
   }
