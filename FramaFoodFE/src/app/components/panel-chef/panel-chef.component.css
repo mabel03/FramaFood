@@ -1,0 +1,29 @@
+.contenedor {
+    background-image: url('../../../Fotos/fondos-de-mesa-de-comida.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center; /* Vertically center content */
+    padding-top: 60px; /* Adjust for fixed navbar height */
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    color: white;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 200px;
+    height: 100px;
+    border-radius: 20px 0px 20px 0px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin: 0rem auto 45rem auto;
+}
+
+.titulo h1 {
+    text-align: center;
+}

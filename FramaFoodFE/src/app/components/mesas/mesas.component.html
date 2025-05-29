@@ -1,0 +1,54 @@
+<header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1 style="color: white;font-size: 20px;">FramaFood</h1>
+            </div>
+                <ul style="color: white;font-size: 18px;">
+                    ¡Bienvenida, Mabel Cabrera! <!--AGREGAR NOMBRE DE USUARIO-->
+                </ul>
+        </div>
+    </header>
+
+<main class="hero-section">
+    <div>
+        <div class="hero-content">
+    <h2 style="color: white;">Selecciona el tipo de mesa que desees:</h2>
+
+    <ul class="mesa-lista">
+      <li (click)="filtrarMesas(2)"><span>Salon 1 - 2 Sillas</span></li>
+      <li (click)="filtrarMesas(4)"><span>Salon 2 - 4 Sillas</span></li>
+      <li (click)="filtrarMesas(6)"><span>Salon 3 - 6 Sillas</span></li>
+    </ul>
+  </div>
+    </div>  
+
+    <div *ngIf="cantidadSillasSeleccionada" class="sillas">
+        <app-sillas [cantidadSillas]="cantidadSillasSeleccionada"></app-sillas>
+</div>
+</main>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-left">
+                <p>Lun - Vie 11am - 10pm</p>
+                <p>Sab - Dom 11am - 9pm</p>
+            </div>
+            <div class="footer-center">
+                <p>Residencial Claridel</p>
+                <p>Autopista san isidro #3</p>
+            </div>
+            <div class="footer-right">
+                <p>Siguenos</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 por FramaFood.</p>
+        </div>
+    </footer>

@@ -1,0 +1,261 @@
+/*todo bien aqui */
+.mesa-lista {
+  padding: 0;
+  list-style-type: none;
+  margin-top: 30px;
+}
+
+.mesa-lista li {
+  font-size: 25px;
+  width: 10em;
+  height: 2.5em;
+  color: orange;
+  border-left: 0.08em solid;
+  position: relative;
+  margin: 1em auto;
+  cursor: pointer;
+}
+
+.mesa-lista li::before,
+.mesa-lista li::after {
+  content: '';
+  position: absolute;
+  width: inherit;
+  border-left: inherit;
+  z-index: -1;
+}
+
+.mesa-lista li::before {
+  height: 80%;
+  top: 10%;
+  left: calc(-0.15em - 0.08em * 2);
+  filter: brightness(0.8);
+}
+
+.mesa-lista li::after {
+  height: 60%;
+  top: 20%;
+  left: calc(-0.15em * 2 - 0.08em * 3);
+  filter: brightness(0.6);
+}
+
+.mesa-lista li span {
+  position: relative;
+  height: 120%;
+  top: -10%;
+  box-sizing: border-box;
+  border: 0.08em solid;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  text-transform: capitalize;
+  transform: translateX(calc(-0.15em * 3 - 0.08em * 2));
+  transition: 0.3s;
+}
+
+.mesa-lista li:hover span {
+  transform: translateX(0.15em);
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif; /* Example font */
+    color: #fff; /* Default text color */
+    background-color: #000; /* Overall dark background */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header/Navbar */
+.navbar {
+    background-color: #000; /* Black background for the header */
+    padding: 15px 0;
+    position: fixed; /* Keep navbar at the top */
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #fff;
+}
+
+.nav-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links ul li {
+    margin-left: 30px;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul li a:hover {
+    color: #d4af37; /* Example hover color */
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url('../../../Fotos/fondo-comida-2.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center; /* Vertically center content */
+    padding-top: 60px; /* Adjust for fixed navbar height */
+    position: relative;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 10%; /* Adjust as needed */
+    transform: translateY(-50%);
+    z-index: 10; /* Ensure content is above image overlay if any */
+}
+
+.welcome-box {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    padding: 40px;
+    max-width: 450px;
+    border-radius: 5px;
+}
+
+.welcome-box h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.welcome-box p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: transparent; /* Transparent button */
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border: 2px solid #fff; /* White border */
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Footer */
+.footer {
+    background-color: #000;
+    padding: 40px 0 20px;
+    text-align: center;
+    border-top: 1px solid #333; /* A subtle separator */
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+    min-width: 200px; /* Ensure content doesn't get too squished */
+    margin-bottom: 20px;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #d4af37; /* Example hover color */
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #777;
+}
+
+.copyright a {
+    color: #777;
+    text-decoration: none;
+}
+main.mesas-content {
+    /* Adjust padding-top to account for fixed navbar */
+    padding-top: 80px; /* More than navbar height to give space */
+    min-height: calc(100vh - 100px); /* Adjust based on footer height */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: flex-start; /* Align content to the top */
+    padding-bottom: 40px; /* Space above footer */
+}
+
+/* Heading for "Nombre usuario" - using h2 or p for consistency */
+.mesas-content .user-name {
+    margin-top: 30px; /* Space below navbar */
+    font-size: 24px;
+    color: #fff; /* Ensure visibility against dark background */
+}
+.mesas-disponibles-section h2 {
+    margin-bottom: 25px; /* More space below heading */
+    font-size: 28px; /* Larger heading */
+    color: #d4af37; /* Accent color for the heading */
+}
+
+/**************Contenedor 2*******/
+
+.sillas {
+    padding: 3px;
+    margin: 0 0 0 45%;
+    background-color: rgb(0, 0, 0);
+    width: 42%;
+    height: 64%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 6px;
+}
