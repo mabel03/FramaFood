@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-menu',
-  imports: [RouterLink],
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css'] 
+  selector: 'app-sobre-nosotros',
+  imports: [],
+  templateUrl: './sobre-nosotros.component.html',
+  styleUrl: './sobre-nosotros.component.css'
 })
-export class MenuComponent implements OnInit {
-
+export class SobreNosotrosComponent {
   constructor(private router: Router) {} 
 
   ngOnInit(): void {

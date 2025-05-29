@@ -9,7 +9,8 @@ export class MeseraService {
 
   constructor(private http: HttpClient) { }
 
-   obtenerMesas(): Observable<any> {
-     return this.http.get(`${enviroment.url}Mesas/ObtenerMesas`)
-   }
+  obtenerTodasLasMesas(): Observable<Mesa[]> {
+    return this.http.get<Mesa[]>(`${enviroment.url}Mesas/ObtenerMesas`);
+  }
 }
+
