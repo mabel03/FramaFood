@@ -1,0 +1,11 @@
+.platos {
+    padding: 110px;
+    margin: 10px -23px -255px 22%;
+    background-color: white;
+    width: 220%;
+    height: -25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 5px;
+}

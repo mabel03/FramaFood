@@ -2,6 +2,8 @@
 using FramaFoodBE.ServicesInterfaz;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
+using System.Linq;
 
 namespace FramaFoodBE.Services
 {
@@ -66,6 +68,27 @@ namespace FramaFoodBE.Services
         {
             return await dbcontext.Set<T>().ToListAsync();
         }
+        public async Task<IEnumerable<T>> ObtenerDatosConFiltro<T>(Expression<Func<T, bool>>? filtro = null) where T : class
+        {
+            IQueryable<T> query = dbcontext.Set<T>();
+
+            if (filtro != null)
+            {
+                query = query.Where(filtro);
+            }
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<T?> ObtenerDatosConFiltroClase<T>(Expression<Func<T, bool>>? filtro = null) where T : class
+        {
+            if (filtro == null)
+            {
+                return await dbcontext.Set<T>().FirstOrDefaultAsync();
+            }
+            return await dbcontext.Set<T>().FirstOrDefaultAsync(filtro);
+        }
+
 
     }
 }

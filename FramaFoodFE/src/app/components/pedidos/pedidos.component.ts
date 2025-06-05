@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { PlatosComponent } from '../platos/platos.component';
 
 @Component({
   selector: 'app-pedidos',
-  imports: [],
+  imports: [PlatosComponent],
   templateUrl: './pedidos.component.html',
   styleUrl: './pedidos.component.css'
 })
