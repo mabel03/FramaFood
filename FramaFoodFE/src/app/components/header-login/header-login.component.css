@@ -1,0 +1,43 @@
+/* Header/Navbar */
+.navbar {
+    background-color: #000; /* Black background for the header */
+    padding: 15px 0;
+    position: fixed; /* Keep navbar at the top */
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #fff;
+}
+
+.nav-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links ul li {
+    margin-left: 30px;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul li a:hover {
+    color: #d4af37; /* Example hover color */
+}

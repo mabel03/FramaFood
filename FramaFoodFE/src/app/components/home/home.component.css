@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif; /* Example font */
+    color: #fff; /* Default text color */
+    background-color: #000; /* Overall dark background */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    background-image: url('../../../Fotos/your-image.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center; /* Vertically center content */
+    padding-top: 60px; /* Adjust for fixed navbar height */
+    position: relative;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 10%; /* Adjust as needed */
+    transform: translateY(-50%);
+    z-index: 10; /* Ensure content is above image overlay if any */
+}
+
+.welcome-box {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    padding: 40px;
+    max-width: 450px;
+    border-radius: 5px;
+}
+
+.welcome-box h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.welcome-box p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: transparent; /* Transparent button */
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border: 2px solid #fff; /* White border */
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #000;
+}

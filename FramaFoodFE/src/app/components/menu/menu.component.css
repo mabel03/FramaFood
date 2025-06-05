@@ -53,6 +53,7 @@ body {
 
 .nav-links ul li a:hover {
     color: #d4af37; /* Example hover color */
+    cursor: pointer;
 }
 
 /* Hero Section */

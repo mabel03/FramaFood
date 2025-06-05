@@ -44,6 +44,7 @@ packages/
 # Puedes añadir más según tu tipo de proyecto (por ejemplo, appsettings.Development.json)
 FramaFoodBE/FramaFoodBE/bin/
 FramaFood/FramaFoodBE/.vs/
+FramaFood/FramaFood/FramaFoodFE/src/env.ts/
 **/.vs/
 **/obj/
 **/bin/

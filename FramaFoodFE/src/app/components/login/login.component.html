@@ -2,11 +2,11 @@
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-box">
     <h2>Iniciar sesión</h2>
 
-    <label for="email">Correo electrónico</label>
-    <input id="email" type="email" formControlName="email" required />
+    <label for="email">Usuario</label>
+    <input id="email" type="text" formControlName="Nombre" [(ngModel)]="Nombre" required />
 
     <label for="password">Contraseña</label>
-    <input id="password" type="password" formControlName="password" required />
+    <input id="password" type="password" formControlName="Contrasena" [(ngModel)]="Contrasena" required />
 
     <button type="submit">Ingresar</button>
   </form>

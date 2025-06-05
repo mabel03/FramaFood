@@ -1,5 +1,25 @@
 <div class="contenedor">
-    <div class="titulo">
-        <h1>Panel del chef</h1>
+    <div class="contenedorGrid">
+        <div class="pedidos">
+            <h1>Pedidos Pendientes</h1>
+            <div class="pendientes">
+                <div class="contenido" *ngFor="let item of items; let i = index">
+                    <p> {{item.name}} #{{i + 1}} </p>
+                    <button>Preparas</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="Cocinando">
+            <h1>Pedidos en Proceso</h1>
+            <div class="EnProcesos">
+                <ul class="task-list">
+                    <li *ngFor="let task of tasks" class="task-item">
+                        <span class="task-text">{{ task.name }}</span>
+                        <input class="check" type="checkbox" [checked]="task.completed" (change)="toggle(task)" />
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
