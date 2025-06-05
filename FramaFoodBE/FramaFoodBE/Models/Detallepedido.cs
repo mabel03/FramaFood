@@ -1,25 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace FramaFoodBE.Models;
 
-public partial class Detallepedido
+[Table("DETALLEPEDIDO")]
+public class Detallepedido
 {
-    public int Iddetalle { get; set; }
+    [Key]
+    [Column("IDDETALLE")]
+    public int IdDetalle { get; set; }
 
-    public int Idpedido { get; set; }
+    [Required]
+    [Column("IDPEDIDO")]
+    public int IdPedido { get; set; }
 
-    public int Idplato { get; set; }
+    [Required]
+    [Column("IDPLATO")]
+    public int IdPlato { get; set; }
 
-    public int Idchef { get; set; }
+    [Required]
+    [Column("IDCHEF")]
+    public int IdChef { get; set; }
 
+    [Column("COMENTARIO")]
+    public string Comentario { get; set; }    
+    
+    [Column("CANTIDAD")]
     public int Cantidad { get; set; }
 
-    public string Estado { get; set; } = null!;
+    [Required]
+    [Column("ESTADO")]
+    public string Estado { get; set; }
 
-    public virtual Usuario IdchefNavigation { get; set; } = null!;
+    [ForeignKey("IdPedido")]
+    public virtual Pedido Pedido { get; set; }
 
-    public virtual Pedido IdpedidoNavigation { get; set; } = null!;
+    [ForeignKey("IdPlato")]
+    public virtual Plato Plato { get; set; }
 
-    public virtual Plato IdplatoNavigation { get; set; } = null!;
+    [ForeignKey("IdChef")]
+    public virtual Usuario Usuario { get; set; }
+
 }
