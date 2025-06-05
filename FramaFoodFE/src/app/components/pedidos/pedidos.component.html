@@ -1,0 +1,95 @@
+<header class="navbar">
+  <div class="container">
+    <div class="logo">
+      <ul>
+        <li><a (click)="irMenu()" style="color: white;font-size: 25px;">FramaFood</a></li>
+      </ul>
+    </div>
+    <div class="MenuIzquierda">
+      <div class="button_slide slide_down" style="color: white;font-size: 15px;">
+        <ul style="color: white;font-size: 15px;">
+          <a (click)="irPedidoMeseraChef()">Pedidos Realizados</a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="hero-section">
+  <div class="mesa-info-wrapper">
+    <ul class="mesa-lista">
+      <li><span>{{numeromesas}}</span></li>
+    </ul>
+  </div>
+
+  <div class="section-wrapper platos-section-wrapper">
+    <div class="section-title-bar">Todos los platos</div>
+    <input type="text" placeholder="Agregar Platos" class="buscador" [(ngModel)]="Buscador" />
+    <app-platos (addToOrder)="onAddToOrder($event)" [Buscador]="Buscador"></app-platos>
+  </div>
+
+  <div class="section-wrapper pedidos-details-section-wrapper">
+    <div class="section-title-bar">Pedidos Detalles</div>
+
+    <form (ngSubmit)="submitOrder()">
+      <table class="order-table">
+        <thead>
+          <tr>
+            <th>Plato</th>
+            <th>Cantidad</th>
+            <th>Comentario</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="currentOrderItems.length === 0">
+            <td colspan="4" class="no-items-message">No hay platos en el pedido.</td>
+          </tr>
+          <tr *ngFor="let item of currentOrderItems; let i = index" style="color: white;">
+            <td>{{ item.nombre}}</td>
+            <td>
+              <input type="number" [(ngModel)]="item.cantidad" name="cantidad_{{i}}" min="1"
+                (change)="updateQuantity(item)" class="quantity-input">
+            </td>
+            <td>
+              <input type="text" [(ngModel)]="item.comentario" name="comentario_{{i}}"
+                placeholder="Ej: sin cebolla, poco picante" class="comment-input">
+            </td>
+            <td>
+              <button type="button" class="btn-remove" (click)="removeItem(item.idplato)">X</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="order-actions">
+        <button type="submit" class="btn-place-order" [disabled]="currentOrderItems.length === 0">Realizar
+          Pedido</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-left">
+      <p>Lun - Vie 11am - 10pm</p>
+      <p>Sab - Dom 11am - 9pm</p>
+    </div>
+    <div class="footer-center">
+      <p>Residencial Claridel</p>
+      <p>Autopista san isidro #3</p>
+    </div>
+    <div class="footer-right">
+      <p>Siguenos</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>&copy; 2025 por FramaFood.</p>
+  </div>
+</footer>

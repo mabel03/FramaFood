@@ -1,0 +1,8 @@
+<ul class="mesa-lista">
+    <li *ngFor="let mesa of mesasFiltradas">
+        <span (click)="irPedidosPlatos(mesa)" [ngClass]="{ 'text-red': mesa.estado === 'OCU' }">{{ mesa.numero }}</span>
+    </li>
+    <li *ngIf="mesasFiltradas.length === 0">
+      <span>No hay mesas disponibles para este salon</span>
+    </li>
+</ul>

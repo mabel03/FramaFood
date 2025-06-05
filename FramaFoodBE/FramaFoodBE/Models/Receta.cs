@@ -1,15 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace FramaFoodBE.Models;
 
-public partial class Receta
+public class Receta
 {
-    public int Idreceta { get; set; }
+    [Key]
+    [Column("IDRECETA")]
+    public int IdReceta { get; set; }
 
-    public int Idplato { get; set; }
+    [Required]
+    [Column("IDPLATO")]
+    public int IdPlato { get; set; }
 
-    public string Instrucciones { get; set; } = null!;
+    [Required]
+    [Column("INSTRUCCIONES")]
+    public string Instrucciones { get; set; }
 
-    public virtual Plato IdplatoNavigation { get; set; } = null!;
+    [ForeignKey("IdPlato")]
+    public virtual Plato Plato { get; set; }
 }

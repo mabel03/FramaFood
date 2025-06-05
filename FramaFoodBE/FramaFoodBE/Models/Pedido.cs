@@ -1,25 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace FramaFoodBE.Models;
 
-public partial class Pedido
+public class Pedido
 {
-    public int Idpedido { get; set; }
+    [Key]
+    [Column("IDPEDIDO")]
+    public int IdPedido { get; set; }
 
-    public int Idmesa { get; set; }
+    [Required]
+    [Column("IDMESA")]
+    public int IdMesa { get; set; }
 
-    public int Idmesera { get; set; }
+    [Required]
+    [Column("IDMESERA")]
+    public int IdMesera { get; set; }
 
-    public DateTime Fechahora { get; set; }
+    [Required]
+    [Column("FECHAHORA")]
+    public DateTime FechaHora { get; set; }
 
-    public string Estado { get; set; } = null!;
+    [Required]
+    [Column("ESTADO")]
+    public string Estado { get; set; }
 
-    public virtual ICollection<Detallepedido> Detallepedidos { get; set; } = new List<Detallepedido>();
+    [ForeignKey("IdMesa")]
+    public virtual Mesa Mesa { get; set; }
 
-    public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
-
-    public virtual Mesa IdmesaNavigation { get; set; } = null!;
-
-    public virtual Usuario IdmeseraNavigation { get; set; } = null!;
+    [ForeignKey("IdMesera")]
+    public virtual Usuario Mesera { get; set; }
 }
