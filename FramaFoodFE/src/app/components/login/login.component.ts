@@ -12,14 +12,14 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  Nombre: string = 'Elchef';
-  Contrasena: string = '1234';
+  Usuario: string;
+  Pass: string;
   public router = inject(Router);
 
   constructor(private fb: FormBuilder, private _LoginService: LoginService) {
     this.loginForm = this.fb.group({
-      Nombre: ['', [Validators.required]],
-      Contrasena: ['', Validators.required],
+      Usuario: ['', [Validators.required]],
+      Pass: ['', Validators.required],
     });
 
     /*this._LoginService.obtenerUsuarios().subscribe(a => {
@@ -33,7 +33,7 @@ export class LoginComponent {
   onLogin() {
     if (this.loginForm.valid) {
       this._LoginService
-        .Login(this.loginForm.value.Nombre, this.loginForm.value.Contrasena)
+        .Login(this.loginForm.value.Usuario, this.loginForm.value.Pass)
         .subscribe((a) => {
           if (a) {
             if (a.rol === 'CHEF') {
