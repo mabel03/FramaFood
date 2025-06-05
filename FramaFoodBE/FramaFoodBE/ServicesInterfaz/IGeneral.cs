@@ -11,5 +11,12 @@ namespace FramaFoodBE.ServicesInterfaz
         Task<ActionResult> EliminarId<T>(int id) where T : class;
         Task<IEnumerable<T>> ObtenerDatosConFiltro<T>(Expression<Func<T, bool>>? filtro = null) where T : class;
         Task<IEnumerable<T>> ObtenerDatos<T>() where T : class;
+
+        Task<IEnumerable<T>> ObtenerDatosConFiltroEIncluidos<T>( Expression<Func<T, bool>>? filtro = null,
+            params Expression<Func<T, object>>[] includeProperties
+        ) where T : class;
+        Task<T?> ObtenerDatosConFiltroClaseEIncluidos<T>(Expression<Func<T, bool>>? filtro = null,
+            params Expression<Func<T, object>>[] includeProperties
+        ) where T : class;
     }
 }

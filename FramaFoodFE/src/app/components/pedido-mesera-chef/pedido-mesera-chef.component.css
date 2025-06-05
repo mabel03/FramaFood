@@ -1,0 +1,477 @@
+/* Existing styles (keep them) */
+
+/* todo bien aqui */
+.MenuIzquierda{
+    position: fixed; /* Lo fija al lado izquierdo de la pantalla */
+    top: -4px;
+    left: 165px;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn-logout {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.btn-logout i {
+    margin-right: 8px;
+}
+
+
+.button_slide {
+    color: #FFF;
+    border: 2px solid orange;
+    border-radius: 0px;
+    padding: 5px 25px;
+    font-size: 14px;
+    box-shadow: inset 0 0 0 0 #f2af06;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+}
+
+
+.slide_down:hover {
+    box-shadow: inset 0 100px 0 0 #f2af06;
+}
+
+.mesa-lista {
+    padding: 0;
+    list-style-type: none;
+    margin-top: 30px;
+}
+
+.mesa-lista li {
+    font-size: 25px;
+    width: 10em;
+    height: 2.5em;
+    color: orange;
+    border-left: 0.08em solid;
+    position: relative;
+    margin: 1em auto;
+    cursor: pointer;
+}
+
+.mesa-lista li::before,
+.mesa-lista li::after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    border-left: inherit;
+    z-index: -1;
+}
+
+.mesa-lista li::before {
+    height: 80%;
+    top: 10%;
+    left: calc(-0.15em - 0.08em * 2);
+    filter: brightness(0.8);
+}
+
+.mesa-lista li::after {
+    height: 60%;
+    top: 20%;
+    left: calc(-0.15em * 2 - 0.08em * 3);
+    filter: brightness(0.6);
+}
+
+.mesa-lista li span {
+    position: relative;
+    height: 120%;
+    top: -10%;
+    box-sizing: border-box;
+    border: 0.08em solid;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+    transform: translateX(calc(-0.15em * 3 - 0.08em * 2));
+    transition: 0.3s;
+}
+
+.mesa-lista li:hover span {
+    transform: translateX(0.15em);
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif; /* Example font */
+    color: #fff; /* Default text color */
+    background-color: #000; /* Overall dark background */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header/Navbar */
+.navbar {
+    background-color: #000; /* Black background for the header */
+    padding: 15px 0;
+    position: fixed; /* Keep navbar at the top */
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #fff;
+}
+
+.nav-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links ul li {
+    margin-left: 30px;
+}
+
+.nav-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul li a:hover {
+    color: #d4af37; /* Example hover color */
+}
+
+/* Hero Section (modified for content) */
+.hero-section {
+  display: none; /* Hide hero section as we're using pedidos-container */
+}
+
+
+/* Footer */
+.footer {
+    background-color: #000;
+    padding: 40px 0 20px;
+    text-align: center;
+    border-top: 1px solid #333; /* A subtle separator */
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+    min-width: 200px; /* Ensure content doesn't get too squished */
+    margin-bottom: 20px;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #d4af37; /* Example hover color */
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #777;
+}
+
+.copyright a {
+    color: #777;
+    text-decoration: none;
+}
+main.mesas-content {
+    /* Adjust padding-top to account for fixed navbar */
+    padding-top: 80px; /* More than navbar height to give space */
+    min-height: calc(100vh - 100px); /* Adjust based on footer height */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: flex-start; /* Align content to the top */
+    padding-bottom: 40px; /* Space above footer */
+}
+
+/* Heading for "Nombre usuario" - using h2 or p for consistency */
+.mesas-content .user-name {
+    margin-top: 30px; /* Space below navbar */
+    font-size: 24px;
+    color: #fff; /* Ensure visibility against dark background */
+}
+.mesas-disponibles-section h2 {
+    margin-bottom: 25px; /* More space below heading */
+    font-size: 28px; /* Larger heading */
+    color: #d4af37; /* Accent color for the heading */
+}
+
+/**************Contenedor 2*******/
+
+.sillas {
+    padding: 3px;
+    margin: 0 0 0 45%;
+    background-color: rgb(0, 0, 0);
+    width: 42%;
+    height: 64%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 6px;
+}
+
+/* New styles for the Pedidos sections and Modals */
+.pedidos-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 100px 20px 40px 20px; /* Adjust padding-top for fixed navbar */
+    background-color: #000;
+    min-height: calc(100vh - 200px); /* Adjust to fill available space */
+}
+
+.pedidos-section {
+    width: 45%;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.pedidos-section h2 {
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+}
+
+.pedidos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 60vh; /* Limit height to enable scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 10px; /* Space for scrollbar */
+}
+
+/* Custom scrollbar for webkit browsers */
+.pedidos-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.pedidos-list::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 4px;
+}
+
+.pedidos-list::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+.pedidos-list::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+}
+
+.pedido-card {
+    background-color: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 15px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.pedido-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.pedido-card h3 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.pedido-card p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.btn-detalle {
+    background-color: #d4af37;
+    color: #000;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-detalle:hover {
+    background-color: #f2af06;
+}
+
+.no-pedidos {
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex; /* Show when 'show' class is added */
+}
+
+.modal-content {
+    background-color: #2a2a2a;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more specific, e.g., 500px */
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    color: #fff;
+}
+
+.modal-content h3 {
+    color: #d4af37;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.modal-content p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    max-height: 200px; /* Limit height for scrollable content */
+    overflow-y: auto;
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #333;
+}
+
+.modal-content ul li {
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #eee;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #d4af37;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn {
+    display: inline-block;
+    background-color: transparent; /* Transparent button */
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 2px solid #fff; /* White border */
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.btn-primary {
+    background-color: #d4af37;
+    border-color: #d4af37;
+    color: #000;
+}
+
+.btn-primary:hover {
+    background-color: #f2af06;
+    border-color: #f2af06;
+    color: #000;
+}

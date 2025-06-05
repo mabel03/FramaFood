@@ -1,4 +1,43 @@
 /*todo bien aqui */
+.MenuIzquierda{
+  position: fixed; /* Lo fija al lado izquierdo de la pantalla */
+  top: -4px;
+  left: 165px;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);    
+}
+
+.btn-logout {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btn-logout i {
+  margin-right: 8px;
+}
+
+
+.button_slide {
+    color: #FFF;
+    border: 2px solid orange;
+    border-radius: 0px;
+    padding: 5px 25px;
+    font-size: 14px;
+    box-shadow: inset 0 0 0 0 #f2af06;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+}
+
+
+.slide_down:hover {
+  box-shadow: inset 0 100px 0 0 #f2af06;
+}
+
 .mesa-lista {
   padding: 0;
   list-style-type: none;

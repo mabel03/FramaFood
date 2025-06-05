@@ -6,6 +6,7 @@ import { ContactosComponent } from './components/contactos/contactos.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { LoginComponent } from './components/login/login.component';
 import { PanelChefComponent } from './components/panel-chef/panel-chef.component';
+import { PedidoMeseraChefComponent } from './components/pedido-mesera-chef/pedido-mesera-chef.component';
 import { HomeComponent } from './components/home/home.component';
 import { hasRoleGuard } from './guards/has-role.guard';
 
@@ -19,4 +20,5 @@ export const routes: Routes = [
     { path: 'Mesas/pedidos', component: PedidosComponent  },
     { path: 'login', component:LoginComponent },
     { path: 'chef', component:PanelChefComponent },
+    { path: 'Pedidos/chef', component: PedidoMeseraChefComponent}
 ];

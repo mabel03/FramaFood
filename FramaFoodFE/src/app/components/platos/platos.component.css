@@ -1,11 +1,132 @@
-.platos {
-    padding: 110px;
-    margin: 10px -23px -255px 22%;
-    background-color: white;
-    width: 220%;
-    height: -25px;
+/* .platos {
+    margin: 275px 0 0 -70%;
+    background-color: wheat;
+    width: 700%;
+    height: auto;
+    min-height: 224px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding: 20px;
+    border-radius: 5px; 
+} */
+
+/* Este es el contenedor principal para la lista de platos */
+.all-dishes-section-content {
+    padding: 20px;
+    background-color: transparent; /* El color de fondo "wheat" lo definiremos en el componente padre */
     border-radius: 5px;
+    /* No necesitamos un margin aquí porque su posicionamiento lo manejará el padre */
+    box-sizing: border-box; /* Incluir padding en el width/height */
+}
+
+.dishes-container {
+    /* Contenedor interno para la cuadrícula de platos */
+}
+
+.dish-grid {
+    display: grid;
+    /* Ajusta minmax para controlar el tamaño de las tarjetas de platos y cuántas caben por fila */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 20px; /* Espacio entre las tarjetas de platos */
+}
+
+.dish-card {
+    background-color: #fff; /* Fondo blanco para cada tarjeta de plato */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #333; /* Texto oscuro para mayor legibilidad sobre fondo blanco */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja los botones hacia abajo */
+}
+
+.dish-card h3 {
+    margin-top: 0;
+    color: #d4af37; /* Color de acento de ejemplo */
+}
+
+.dish-card .description {
+    font-size: 0.9em;
+    color: #666;
+    height: 60px; /* Limita la altura de la descripción, añade overflow si es necesario */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto se desborda */
+}
+
+.dish-card .price {
+    font-weight: bold;
+    color: #000;
+    margin-top: 10px;
+    margin-bottom: 15px; /* Espacio antes de los botones */
+}
+
+.dish-actions {
+    display: flex;
+    flex-direction: column; /* Apila los botones verticalmente */
+    gap: 8px; /* Espacio entre los botones */
+    margin-top: auto; /* Empuja los botones hacia la parte inferior de la tarjeta */
+}
+
+.btn-ingredients,
+.btn-add-to-order {
+    background-color: #d4af37; /* Un color dorado/naranja */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Asegura que los botones ocupen todo el ancho de la tarjeta */
+}
+
+.btn-ingredients:hover,
+.btn-add-to-order:hover {
+    background-color: #b08d0f; /* Tonalidad más oscura al pasar el ratón */
+}
+
+/* Estilos del Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Asegura que esté por encima de otros contenidos */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: #333; /* Texto oscuro para legibilidad */
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #d4af37;
+}
+
+.btn-close-modal {
+    background-color: #f44336; /* Color rojo para el botón de cerrar */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-close-modal:hover {
+    background-color: #d32f2f;
 }

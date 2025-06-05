@@ -5,6 +5,10 @@
     height: 300px;
 }
 
+.text-red {
+  color: red;
+}
+
 .mesa-lista {
   padding: 0;
   list-style-type: none;
