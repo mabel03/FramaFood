@@ -1,6 +1,7 @@
 ﻿using FramaFoodBE.Models;
 using FramaFoodBE.Services;
 using FramaFoodBE.ServicesInterfaz;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,6 +9,7 @@ namespace FramaFoodBE.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "MESERA")]
     public class MesasController : ControllerBase
     {
         private readonly ServiceGeneral service;

@@ -42,3 +42,8 @@ packages/
 # Archivos de la web y de configuración de publicación (a menudo sensibles)
 *.publishsettings
 # Puedes añadir más según tu tipo de proyecto (por ejemplo, appsettings.Development.json)
+FramaFoodBE/FramaFoodBE/bin/
+FramaFood/FramaFoodBE/.vs/
+**/.vs/
+**/obj/
+**/bin/
