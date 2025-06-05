@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Mesa } from '../../Models/mesa';
-import { MeseraService } from '../../services/mesera.service';
+import {ApiService } from '../../services/Api.service';
 import { SillasComponent } from '../sillas/sillas.component';
 import { NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mesas',
@@ -11,23 +12,17 @@ import { NgIf } from '@angular/common';
   imports: [SillasComponent, NgIf]
 })
 export class MesasComponent implements OnInit {
-  // mesasOriginal: Mesa[] = [];
-  // mesasFiltradas: Mesa[] = [];
-  // existeMesas: boolean = false;
-
-  // constructor(private meseraService: MeseraService) {}
+  
+  constructor(private router: Router) {} 
   ngOnInit(): void {}
-
-  // ngOnInit(): void {
-  //   this.meseraService.obtenerMesas().subscribe(data => {
-  //     this.mesasOriginal = data;
-  //     this.mesasFiltradas = data; // Muestra todas al principio
-  //   });
-  // }
 
   cantidadSillasSeleccionada: number | null = null;
 
   filtrarMesas(cantidad: number) {
     this.cantidadSillasSeleccionada = cantidad;
+  }
+
+  irPedidoMeseraChef() {
+   this.router.navigate(['/Pedidos/chef']);
   }
 }

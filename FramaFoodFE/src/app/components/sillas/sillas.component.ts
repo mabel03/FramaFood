@@ -1,8 +1,10 @@
 
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { MeseraService } from '../../services/mesera.service';
+import { ApiService } from '../../services/Api.service';
 import { Mesa } from '../../Models/mesa';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { Console } from 'console';
 
 @Component({
   selector: 'app-sillas',
@@ -14,9 +16,10 @@ import { CommonModule } from '@angular/common';
 export class SillasComponent implements OnChanges {
 @Input() cantidadSillas!: number;
   mesasFiltradas: Mesa[] = [];
+  mesasnumero: string = "";
   todasLasMesas: Mesa[] = []; 
 
-  constructor(private meseraService: MeseraService) { }
+  constructor(private meseraService: ApiService,private router: Router) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['cantidadSillas'] && this.cantidadSillas) {
@@ -28,12 +31,12 @@ export class SillasComponent implements OnChanges {
     if (this.todasLasMesas.length === 0) {
       this.meseraService.obtenerTodasLasMesas().subscribe(
         (data: Mesa[]) => {
-          this.todasLasMesas = data; // Guardamos todas las mesas en nuestro array local
-          this.aplicarFiltro(); // Luego aplicamos el filtro con la cantidad seleccionada
+          this.todasLasMesas = data; 
+          this.aplicarFiltro();
         },
         error => {
           console.error('Error al cargar todas las mesas:', error);
-          this.mesasFiltradas = []; // En caso de error, limpiamos las mesas mostradas
+          this.mesasFiltradas = [];
         }
       );
     } else {
@@ -48,16 +51,19 @@ export class SillasComponent implements OnChanges {
       return;
     }
 
-    // Aquí está la lógica de filtrado en el frontend
     if (this.cantidadSillas === 2) {
       this.mesasFiltradas = this.todasLasMesas.filter(mesa => mesa.cantidadSilla <= 2);
     } else if (this.cantidadSillas === 4) {
       this.mesasFiltradas = this.todasLasMesas.filter(mesa => mesa.cantidadSilla >= 3 && mesa.cantidadSilla <=4);
-    } else if (this.cantidadSillas === 6) { // Para "Salon 3 - 6 Sillas"
-      // Salon 3 - 6 Sillas: Mesas con 6 sillas o más
+    } else if (this.cantidadSillas === 6) { 
       this.mesasFiltradas = this.todasLasMesas.filter(mesa => mesa.cantidadSilla == 5 || mesa.cantidadSilla >= 6);
     } else {
-      this.mesasFiltradas = []; // Si la cantidad no es 2, 4 o 6, no se muestra nada
+      this.mesasFiltradas = [];
     }
+  }
+
+  irPedidosPlatos(item : any) {
+    console.log(item)
+  this.router.navigate(['/Mesas/pedidos'],{  state:{Silla: item.numero}});
   }
 }

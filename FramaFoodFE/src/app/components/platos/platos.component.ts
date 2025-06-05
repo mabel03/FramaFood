@@ -1,11 +1,66 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { CommonModule, NgIf, NgFor, DecimalPipe } from '@angular/common';
+import { Plato } from '../../Models/plato';
+import { Receta } from '../../Models/Receta';
+import { ApiService } from '../../services/Api.service';
+import { PedidoItem } from '../../Models/PedidoItem'; 
 
 @Component({
   selector: 'app-platos',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, NgIf, NgFor, DecimalPipe],
   templateUrl: './platos.component.html',
-  styleUrl: './platos.component.css'
+  styleUrls: ['./platos.component.css']
 })
-export class PlatosComponent {
+export class PlatosComponent implements OnInit {
+  platosList: Plato[] = [];
 
+  showIngredientsModal: boolean = false;
+  selectedReceta: Receta | null = null;
+  selectedPlatoNombre: string = '';
+
+  @Output() addToOrder = new EventEmitter<Plato>(); // Emits a Plato object
+
+  constructor(private PlatosService: ApiService ) { }
+
+  ngOnInit(): void {
+    this.loadPlatos();
+  }
+
+  loadPlatos(): void {
+    this.PlatosService.getAllPlatos().subscribe({
+      next: (data) => {
+        this.platosList = data;
+      },
+      error: (err) => {
+        console.error('Error al cargar platos:', err);
+      }
+    });
+  }
+
+  viewIngredients(idPlato: number): void {
+    const plato = this.platosList.find(p => p.idPlato === idPlato);
+    console.log(plato);
+    if (plato) {
+      this.selectedPlatoNombre = plato.nombre;
+    }
+
+    this.PlatosService.getRecetaByPlatoId(idPlato).subscribe({
+      next: (data) => {
+        this.selectedReceta = data;
+        this.showIngredientsModal = true;
+      },
+      error: (err) => {
+        console.error('Error al cargar ingredientes:', err);
+        this.selectedReceta = { idreceta: 0, idplato: idPlato, instrucciones: 'No se encontraron instrucciones para este plato.' };
+        this.showIngredientsModal = true;
+      }
+    });
+  }
+
+  closeIngredientsModal(): void {
+    this.showIngredientsModal = false;
+    this.selectedReceta = null;
+    this.selectedPlatoNombre = '';
+  }
 }

@@ -1,224 +1,295 @@
-body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif; /* Example font */
-    color: #fff; /* Default text color */
-    background-color: #000; /* Overall dark background */
+.MenuIzquierda{
+  position: fixed; /* Lo fija al lado izquierdo de la pantalla */
+  top: -4px;
+  left: 165px;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);    
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.button_slide {
+    color: #FFF;
+    border: 2px solid orange;
+    border-radius: 0px;
+    padding: 5px 25px;
+    font-size: 14px;
+    box-shadow: inset 0 0 0 0 #f2af06;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
 }
 
-/* Header/Navbar */
+
+.slide_down:hover {
+  box-shadow: inset 0 100px 0 0 #f2af06;
+}
+
+.hero-section {
+    background-image: url('../../../Fotos/fondo-comida-2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Esto hace que la imagen de fondo se fije al desplazarse */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px; /* Espacio para la barra de navegación */
+    box-sizing: border-box;
+    position: relative; /* Importante para el posicionamiento absoluto de la mesa */
+}
+
+/* Navbar y Footer (los que ya tenías o similares) */
 .navbar {
-    background-color: #000; /* Black background for the header */
+    background-color: #000;
+    color: white;
     padding: 15px 0;
-    position: fixed; /* Keep navbar at the top */
+    position: fixed;
     width: 100%;
+    top: 0;
+    left: 0;
     z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.logo h1 {
+.navbar .logo h1 {
     margin: 0;
-    font-size: 28px;
-    color: #fff;
+    font-size: 24px;
 }
 
-.nav-links ul {
+.navbar ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    align-items: center;
-}
-
-.nav-links ul li {
-    margin-left: 30px;
-}
-
-.nav-links ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.nav-links ul li a:hover {
-    color: #d4af37; /* Example hover color */
-}
-
-/* Hero Section */
-.hero-section {
-    background-image: url('../../../Fotos/fondo-comida-2.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Full viewport height */
-    display: flex;
-    align-items: center; /* Vertically center content */
-    padding-top: 60px; /* Adjust for fixed navbar height */
-    position: relative;
-}
-
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 10%; /* Adjust as needed */
-    transform: translateY(-50%);
-    z-index: 10; /* Ensure content is above image overlay if any */
-}
-
-.welcome-box {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
-    padding: 40px;
-    max-width: 450px;
-    border-radius: 5px;
-}
-
-.welcome-box h2 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.welcome-box p {
+    gap: 20px;
     font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 30px;
 }
 
-.btn {
-    display: inline-block;
-    background-color: transparent; /* Transparent button */
-    color: #fff;
-    padding: 15px 30px;
-    text-decoration: none;
-    border: 2px solid #fff; /* White border */
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #fff;
-    color: #000;
-}
-
-/* Footer */
 .footer {
     background-color: #000;
-    padding: 40px 0 20px;
+    color: white;
+    padding: 30px 0;
     text-align: center;
-    border-top: 1px solid #333; /* A subtle separator */
+    margin-top: auto; /* Empuja el footer hacia abajo si el contenido no llena la pantalla */
+    width: 100%;
 }
 
 .footer .container {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.footer-left,
-.footer-center,
-.footer-right {
+.footer-left, .footer-center, .footer-right {
     flex: 1;
-    min-width: 200px; /* Ensure content doesn't get too squished */
-    margin-bottom: 20px;
+    min-width: 200px;
+    margin: 10px;
 }
 
 .footer p {
     margin: 5px 0;
-    font-size: 14px;
-    color: #ccc;
+    font-size: 0.9em;
 }
 
 .social-icons a {
-    color: #fff;
-    font-size: 24px;
+    color: white;
     margin: 0 10px;
+    font-size: 1.5em;
     text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #d4af37; /* Example hover color */
 }
 
 .copyright {
-    margin-top: 30px;
-    font-size: 12px;
-    color: #777;
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+    font-size: 0.8em;
+    color: #bbb;
 }
 
-.copyright a {
-    color: #777;
-    text-decoration: none;
+
+/* Mesa Info Wrapper (A7/A2) - Ajustado para ser más fácil de posicionar */
+.mesa-info-wrapper {
+    position: absolute;
+    top: 100px; /* Ajusta según la altura de tu navbar y un pequeño margen */
+    left: 50px; /* Margen desde la izquierda */
+    z-index: 10;
 }
 
-/*todo bien aqui */
 .mesa-lista {
-  padding: 0;
-  list-style-type: none;
-  margin-top: 30px;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
 }
 
 .mesa-lista li {
-  font-size: 25px;
-  width: 10em;
-  height: 2.5em;
-  color: orange;
-  border-left: 0.08em solid;
-  position: relative;
-  margin: 1em auto;
-  cursor: pointer;
-}
-
-.mesa-lista li::before,
-.mesa-lista li::after {
-  content: '';
-  position: absolute;
-  width: inherit;
-  border-left: inherit;
-  z-index: -1;
-}
-
-.mesa-lista li::before {
-  height: 80%;
-  top: 10%;
-  left: calc(-0.15em - 0.08em * 2);
-  filter: brightness(0.8);
-}
-
-.mesa-lista li::after {
-  height: 60%;
-  top: 20%;
-  left: calc(-0.15em * 2 - 0.08em * 3);
-  filter: brightness(0.6);
+    font-size: 25px;
+    width: 10em; /* Ancho de la caja A7/A2 */
+    height: 2.5em; /* Altura de la caja A7/A2 */
+    /* Elimina el margin-top de tu CSS original de PedidosComponent, ya no es necesario */
 }
 
 .mesa-lista li span {
-    position: relative;
-    height: 100%;
-    top: -349%;
-    box-sizing: border-box;
-    border: 0.08em solid;
-    background-color: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    box-sizing: border-box;
+    border: 0.08em solid orange; /* Borde naranja */
+    background-color: whitesmoke; /* Fondo negro */
+    color: orange; /* Texto naranja */
     font-family: "Poppins", sans-serif;
     text-transform: capitalize;
-    transform: translateX(calc(-0.15em * 3 - 0.08em * 2));
+    /* Elimina las transformaciones translateX, a menos que realmente las necesites para un efecto específico */
     transition: 0.3s;
 }
 
 .mesa-lista li:hover span {
-  transform: translateX(0.15em);
+    /* Aquí podrías añadir efectos al pasar el ratón si los deseas */
+    /* transform: translateX(0.15em); */
+}
+
+
+/* Contenedores para las secciones de "Todos los platos" y "Pedidos Detalles" */
+.section-wrapper {
+    width: 141%;
+    max-width: 831px;
+    margin: 20px -10px -20px 242px;
+    box-sizing: border-box;
+    background-color: rgb(176, 126, 34);
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+}
+
+.platos-section-wrapper {
+}
+
+.pedidos-details-section-wrapper {
+    margin-top: 30px; /* Espacio entre la sección de platos y la de detalles de pedido */
+    min-height: 250px; /* Asegura una altura mínima incluso si no hay ítems */
+}
+
+/* Estilo para las barras de título "Todos los platos" y "Pedidos detalles" */
+.section-title-bar {
+    background-color: #e0b26c; /* Un color similar a wheat pero más pronunciado para el título */
+    color: #333; /* Texto oscuro para legibilidad */
+    padding: 10px 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2em;
+    /* Ajusta los márgenes negativos para que se extienda y de espacio */
+    margin: -20px -20px 20px -20px; 
+    width: calc(100% + 40px); /* Ocupa el ancho completo del wrapper más el padding */
+    box-sizing: border-box;
+    border-bottom: 1px solid black; /* Separador sutil */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+
+/* Estilo de la tabla para Pedidos Detalles */
+.order-table {
+    width: 100%;
+    border-collapse: collapse; /* Colapsa los bordes de la tabla */
+    margin-top: 15px;
+}
+
+/*aqui*/
+/* src/app/pedidos/pedidos.component.css */
+
+.order-table th {
+    background-color: #f2f2f2; /* Fondo para los encabezados de la tabla */
+    font-weight: bold;
+    text-align: center; /* <-- Añade esta línea para centrar el texto */
+}
+
+/* El resto de tu CSS para la tabla sigue igual */
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.order-table th,
+.order-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    /* text-align: left; /* Si quieres que el contenido de las celdas de datos permanezca a la izquierda, no cambies esto. */
+    color: #333;
+}
+
+.order-table th {
+    background-color: whitesmoke; /* Fondo para los encabezados de la tabla */
+    font-weight: bold;
+}
+
+.no-items-message {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+}
+
+.quantity-input,
+.comment-input {
+    width: 80px; /* Ajusta el ancho según sea necesario */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.comment-input {
+    width: 95%; /* Hace el input de comentario más ancho */
+}
+
+.btn-remove {
+    background-color: #f44336; /* Color rojo para el botón de eliminar */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-remove:hover {
+    background-color: #d32f2f;
+}
+
+.order-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.btn-place-order {
+    background-color: #4CAF50; /* Color verde para el botón de realizar pedido */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-place-order:hover:not([disabled]) {
+    background-color: #45a049;
+}
+
+.btn-place-order[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
 }

@@ -1,1 +1,23 @@
-<div class="platos">platos works!</div>
+<div class="all-dishes-section-content">
+    <div class="dishes-container">
+        <div *ngIf="platosList.length === 0">Cargando platos...</div>
+        <div *ngIf="platosList.length > 0" class="dish-grid">
+            <div class="dish-card" *ngFor="let plato of platosList">
+                <h3 style="color: black;">{{ plato.nombre }}</h3>
+                <p class="description">{{ plato.descripcion }}</p>
+                <p class="price">Precio: ${{ plato.precio | number:'1.2-2'}}</p>
+                <div class="dish-actions">
+                    <button class="btn-ingredients" (click)="viewIngredients(plato.idPlato)">Ver Ingredientes</button>
+                    <button class="btn-add-to-order" (click)="addToOrder.emit(plato)">Agregar al Pedido</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="showIngredientsModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Instrucciones para {{ selectedPlatoNombre }}</h3>
+            <p>{{ selectedReceta?.instrucciones }}</p>
+            <button class="btn-close-modal" (click)="closeIngredientsModal()">Cerrar</button>
+        </div>
+    </div>
+</div>
