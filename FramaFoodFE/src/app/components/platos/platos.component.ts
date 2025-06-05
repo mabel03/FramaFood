@@ -40,7 +40,6 @@ export class PlatosComponent implements OnInit {
 
   viewIngredients(idPlato: number): void {
     const plato = this.platosList.find(p => p.idPlato === idPlato);
-    console.log(plato);
     if (plato) {
       this.selectedPlatoNombre = plato.nombre;
     }

@@ -9,7 +9,7 @@ namespace FramaFoodBE.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "MESERA")]
+    //[Authorize(Roles = "MESERA")]
     public class MesasController : ControllerBase
     {
         private readonly ServiceGeneral service;

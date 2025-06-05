@@ -5,6 +5,8 @@ import { Mesa } from '../Models/mesa';
 import { enviroment } from '../../env';
 import { Plato } from '../Models/plato';
 import { Receta } from '../Models/Receta';
+import { PedidoApi } from '../Models/PedidoApi';
+import { DetallePedidoApi } from '../Models/DetallePedidoApi';
 
 @Injectable({ providedIn: 'root' })
 export class ApiService  {
@@ -26,5 +28,30 @@ export class ApiService  {
   placeOrder(orderData: { idmesa: number, idmesera: number, Detalles: any[] }): Observable<any> {
     return this.http.post(`${enviroment.url}Platos/CreateOrder`, orderData);
   }
+
+  obtenerPedidosPendientes(): Observable<PedidoApi[]> {
+    return this.http.get<PedidoApi[]>(`${enviroment.url}Pedidos/ObtenerPedidosPendientes`)
+      .pipe(
+        map(pedidos => pedidos.map(p => ({
+          ...p,
+          cantidadPlatos: p.detallePlatos.reduce((sum: number, det: DetallePedidoApi) => sum + det.cantidad, 0)
+        })))
+      );
+  }
+
+  obtenerPedidosListos(): Observable<PedidoApi[]> {
+    return this.http.get<PedidoApi[]>(`${enviroment.url}Pedidos/ObtenerPedidosListos`)
+      .pipe(
+        map(pedidos => pedidos.map(p => ({
+          ...p,
+          cantidadPlatos: p.detallePlatos.reduce((sum: number, det: DetallePedidoApi) => sum + det.cantidad, 0)
+        })))
+      );
+  }
+
+  actualizarEstadoPedido(idPedido: number, nuevoEstado: 'PREP' | 'LIST' | 'ENVI'): Observable<any> {
+    return this.http.put(`${enviroment.url}Pedidos/ActualizarEstadoPedido/${idPedido}`, { estado: nuevoEstado });
+  }
+  
 }
 

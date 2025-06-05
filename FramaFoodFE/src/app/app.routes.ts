@@ -15,7 +15,6 @@ export const routes: Routes = [
     { path: 'SobreNosotros', component: SobreNosotrosComponent },
     { path: 'Contactos', component: ContactosComponent },
     { path: 'Mesas/pedidos', component: PedidosComponent  },
-    { path: 'Mesas', component: MesasComponent },
     { path: 'login', component:LoginComponent },
     { path: 'chef', component:PanelChefComponent },
     { path: 'Pedidos/chef', component: PedidoMeseraChefComponent}

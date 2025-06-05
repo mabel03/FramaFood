@@ -182,7 +182,6 @@
     min-height: 250px; /* Asegura una altura mínima incluso si no hay ítems */
 }
 
-/* Estilo para las barras de título "Todos los platos" y "Pedidos detalles" */
 .section-title-bar {
     background-color: #e0b26c; /* Un color similar a wheat pero más pronunciado para el título */
     color: #333; /* Texto oscuro para legibilidad */

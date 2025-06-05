@@ -18,6 +18,7 @@ export class SillasComponent implements OnChanges {
   mesasFiltradas: Mesa[] = [];
   mesasnumero: string = "";
   todasLasMesas: Mesa[] = []; 
+  isDanger: boolean = true;
 
   constructor(private meseraService: ApiService,private router: Router) { }
 
@@ -51,6 +52,11 @@ export class SillasComponent implements OnChanges {
       return;
     }
 
+    const estatus = this.todasLasMesas.filter(mesa => mesa.estado === 'OCU');
+      if(estatus){
+        this.isDanger = false;
+      }
+
     if (this.cantidadSillas === 2) {
       this.mesasFiltradas = this.todasLasMesas.filter(mesa => mesa.cantidadSilla <= 2);
     } else if (this.cantidadSillas === 4) {
@@ -63,7 +69,6 @@ export class SillasComponent implements OnChanges {
   }
 
   irPedidosPlatos(item : any) {
-    console.log(item)
-  this.router.navigate(['/Mesas/pedidos'],{  state:{Silla: item.numero}});
+  this.router.navigate(['/Mesas/pedidos'],{  state:{Silla: item.numero, idMesa:item.idMesa}});
   }
 }

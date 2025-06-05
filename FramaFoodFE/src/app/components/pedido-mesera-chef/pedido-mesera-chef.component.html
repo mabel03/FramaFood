@@ -1,1 +1,117 @@
-<p>pedido-mesera-chef works!</p>
+<header class="navbar">
+  <div class="container">
+    <div class="logo">
+      <ul>
+        <li ><a (click)="irMenu()" style="color: white;font-size: 25px;">FramaFood</a></li>
+      </ul>
+    </div>
+    <nav class="nav-links">
+      <div class="MenuIzquierda">
+        <div class="button_slide slide_down" style="color: white;font-size: 15px;">
+          <ul style="color: white;font-size: 15px;">
+            <a (click)="irPedidoMeseraChef()">Pedidos Realizados</a>
+          </ul>
+        </div>
+      </div>
+      <ul>
+        <li></li>
+        <li style="color: white;font-size: 18px;">¡Bienvenida, Mabel Cabrera!</li>
+        <li style="color: white;font-size: 18px;" class="fas fa-sign-out-alt" title="Cerrar sesión"></li>
+        <li></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="pedidos-container">
+  <div class="pedidos-section pendientes">
+    <h2>Pedidos Pendientes</h2>
+    <div class="pedidos-list">
+      <div class="pedido-card" *ngFor="let pedido of pedidosPendientes">
+        <h3>Pedido #{{ pedido.idPedido }}</h3>
+        <p>Mesa: {{ pedido.numeroMesa }}</p>
+        <p>Platos: {{ pedido.cantidadPlatos }}</p>
+        <button class="btn-detalle" (click)="openDetallePedidoModal(pedido)">Ver Detalles</button>
+      </div>
+      <div *ngIf="pedidosPendientes.length === 0" class="no-pedidos">
+        No hay pedidos pendientes.
+      </div>
+    </div>
+  </div>
+
+  <div class="pedidos-section listos">
+    <h2>Pedidos Listos</h2>
+    <div class="pedidos-list">
+      <div class="pedido-card" *ngFor="let pedido of pedidosListos">
+        <h3>Pedido #{{ pedido.idPedido }}</h3>
+        <p>Mesa: {{ pedido.numeroMesa }}</p>
+        <p>Platos: {{ pedido.cantidadPlatos }}</p>
+        <button class="btn-detalle" (click)="openPedidoListoModal(pedido)">Entregar Pedido</button>
+      </div>
+      <div *ngIf="pedidosListos.length === 0" class="no-pedidos">
+        No hay pedidos listos.
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="modal" [class.show]="showDetallePedidoModal">
+  <div class="modal-content">
+    <span class="close-button" (click)="closeDetallePedidoModal()">&times;</span>
+    <h3>Detalles del Pedido #{{ selectedPedido?.idPedido }}</h3>
+    <p><strong>Mesa:</strong> {{ selectedPedido?.numeroMesa }}</p>
+    <p><strong>Código de Pedido:</strong> {{ selectedPedido?.idPedido }}</p>
+    <h4>Platos:</h4>
+    <ul>
+      <li *ngFor="let plato of selectedPedido?.detallePlatos">
+        {{ plato.cantidad }}x {{ plato.nombrePlato }} ({{ plato.estadoDetalle }})
+      </li>
+    </ul>
+    <div class="modal-actions">
+      <button class="btn" (click)="closeDetallePedidoModal()">Cerrar</button>
+      <!-- <button class="btn btn-primary" (click)="markPedidoAsReady(selectedPedido)">Marcar como Listo</button> -->
+    </div>
+  </div>
+</div>
+
+<div class="modal" [class.show]="showPedidoListoModal">
+  <div class="modal-content">
+    <span class="close-button" (click)="closePedidoListoModal()">&times;</span>
+    <h3>Pedido Listo para la Mesa {{ selectedPedido?.numeroMesa }}</h3>
+    <p>¡El pedido **#{{ selectedPedido?.idPedido }}** está listo para ser entregado!</p>
+    <h4>Resumen del Pedido:</h4>
+    <ul>
+      <li *ngFor="let plato of selectedPedido?.detallePlatos">
+        {{ plato.cantidad }}x {{ plato.nombrePlato }}
+      </li>
+    </ul>
+    <div class="modal-actions">
+      <button class="btn" (click)="closePedidoListoModal()">Cancelar</button>
+      <button class="btn btn-primary" (click)="confirmarEntrega(selectedPedido)">Confirmar Entrega</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-left">
+      <p>Lun - Vie 11am - 10pm</p>
+      <p>Sab - Dom 11am - 9pm</p>
+    </div>
+    <div class="footer-center">
+      <p>Residencial Claridel</p>
+      <p>Autopista san isidro #3</p>
+    </div>
+    <div class="footer-right">
+      <p>Siguenos</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>&copy; 2025 por FramaFood.</p>
+  </div>
+</footer>

@@ -1,4 +1,4 @@
-﻿namespace FramaFoodBE.Models
+﻿namespace FramaFoodBE.Models.ViewModels
 {
     public class ViewDetallePedidos
     {

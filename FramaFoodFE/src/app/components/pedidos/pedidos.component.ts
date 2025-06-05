@@ -18,7 +18,7 @@ export class PedidosComponent implements OnInit {
   numeromesas: string = " ";
   currentOrderItems: PedidoItem[] = [];
 
-  mesaId: number = 1;
+  mesaId: number = 0;
   meseraId: number = 1;
   chefId: number = 0;
   cantidad: number = 0;
@@ -28,6 +28,7 @@ export class PedidosComponent implements OnInit {
 
   ngOnInit(): void {
     this.numeromesas = history.state.Silla || 'No asignada';
+    this.mesaId = history.state.idMesa || 0;
   }
 
 
@@ -98,5 +99,13 @@ export class PedidosComponent implements OnInit {
         alert(`Hubo un error al realizar el pedido. Detalles: ${error.message || error.statusText}`);
       }
     });
+  }
+  
+  irMenu() {
+   this.router.navigate(['/Mesas']);
+  }
+
+  irPedidoMeseraChef(){
+   this.router.navigate(['/Pedidos/chef']);
   }
 }

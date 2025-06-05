@@ -89,6 +89,37 @@ namespace FramaFoodBE.Services
             return await dbcontext.Set<T>().FirstOrDefaultAsync(filtro);
         }
 
+        public async Task<IEnumerable<T>> ObtenerDatosConFiltroEIncluidos<T>(Expression<Func<T, bool>>? filtro = null, params Expression<Func<T, object>>[] includeProperties) where T : class
+        {
+            IQueryable<T> query = dbcontext.Set<T>();
 
+            foreach (var includeProperty in includeProperties)
+            {
+                query = query.Include(includeProperty);
+            }
+
+            if (filtro != null)
+            {
+                query = query.Where(filtro);
+            }
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<T?> ObtenerDatosConFiltroClaseEIncluidos<T>(Expression<Func<T, bool>>? filtro = null,params Expression<Func<T, object>>[] includeProperties) where T : class
+        {
+            IQueryable<T> query = dbcontext.Set<T>();
+
+            foreach (var includeProperty in includeProperties)
+            {
+                query = query.Include(includeProperty);
+            }
+
+            if (filtro == null)
+            {
+                return await query.FirstOrDefaultAsync();
+            }
+            return await query.FirstOrDefaultAsync(filtro);
+        }
     }
 }
