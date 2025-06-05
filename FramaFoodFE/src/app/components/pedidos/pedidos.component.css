@@ -7,6 +7,16 @@
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);    
 }
 
+.buscador{
+    width: 400px;
+    height: 32px;
+  border: 1px solid #ccc; /* Borde del input */
+  padding: 1px;          /* Espacio interno */
+    margin: 0px 0px 0px 20px;
+    border-radius: 3px;
+  background-color: #fff;  /* Fondo del input */
+}
+
 .button_slide {
     color: #FFF;
     border: 2px solid orange;
@@ -172,9 +182,7 @@
     border-radius: 4px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
-}
-
-.platos-section-wrapper {
+    margin-bottom: 10px;
 }
 
 .pedidos-details-section-wrapper {

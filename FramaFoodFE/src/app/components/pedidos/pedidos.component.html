@@ -18,7 +18,8 @@
 
   <div class="section-wrapper platos-section-wrapper">
     <div class="section-title-bar">Todos los platos</div>
-    <app-platos (addToOrder)="onAddToOrder($event)"></app-platos>
+    <input type="text" placeholder="Agregar Platos" class="buscador" [(ngModel)]="Buscador" />
+    <app-platos (addToOrder)="onAddToOrder($event)" [Buscador]="Buscador"></app-platos>
   </div>
 
   <div class="section-wrapper pedidos-details-section-wrapper">
