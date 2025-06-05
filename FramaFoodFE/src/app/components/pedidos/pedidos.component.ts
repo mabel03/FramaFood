@@ -17,6 +17,8 @@ import { Plato } from '../../Models/plato'; // Import Plato as well to correctly
 export class PedidosComponent implements OnInit {
   numeromesas: string = " ";
   currentOrderItems: PedidoItem[] = [];
+  Buscador: string = "";
+  // buscar: any;
 
   mesaId: number = 0;
   meseraId: number = 1;
@@ -108,4 +110,14 @@ export class PedidosComponent implements OnInit {
   irPedidoMeseraChef(){
    this.router.navigate(['/Pedidos/chef']);
   }
+
+  // get BuscarPlatos():PedidoItem[]{
+  //    return this.currentOrderItems.filter(x => 
+  //    {
+  //      const buscarPlatos = x.nombre.toLowerCase().includes(this.Buscador.toLowerCase())
+  //      console.log(buscarPlatos)
+  //      return buscarPlatos;
+  //    }
+  //    );
+  // }
 }

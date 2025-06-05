@@ -130,3 +130,8 @@
 .btn-close-modal:hover {
     background-color: #d32f2f;
 }
+
+.platos{
+    max-height: 220px;
+    overflow-y: auto;
+}
