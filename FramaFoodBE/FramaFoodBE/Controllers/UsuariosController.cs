@@ -1,5 +1,6 @@
 ﻿using FramaFoodBE.Data;
 using FramaFoodBE.Models;
+using FramaFoodBE.Models.ViewModels;
 using FramaFoodBE.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -40,7 +41,7 @@ namespace FramaFoodBE.Controllers
             }
 
             var token = GenerarToken(user);
-            return Ok(new { Token = token, Rol = user.Role.Nombre });
+            return Ok(new { Token = token, Rol = user.Role.Nombre , NombreUsuario= user.Nombre});
         }
 
 

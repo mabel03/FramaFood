@@ -10,13 +10,56 @@
     </header>-->
 
 <main class="hero-section">
-  <div>
-     <ul class="mesa-lista">
-      <li><span>A1</span></li>
-    </ul>   
+  <div class="mesa-info-wrapper">
+    <ul class="mesa-lista">
+      <li><span>{{numeromesas}}</span></li>
+    </ul>
   </div>
-  <div>
-    <app-platos></app-platos>
+
+  <div class="section-wrapper platos-section-wrapper">
+    <div class="section-title-bar">Todos los platos</div>
+    <app-platos (addToOrder)="onAddToOrder($event)"></app-platos>
+  </div>
+
+  <div class="section-wrapper pedidos-details-section-wrapper">
+    <div class="section-title-bar">Pedidos Detalles</div>
+
+    <form (ngSubmit)="submitOrder()">
+      <table class="order-table">
+        <thead>
+          <tr>
+            <th>Plato</th>
+            <th>Cantidad</th>
+            <th>Comentario</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="currentOrderItems.length === 0">
+            <td colspan="4" class="no-items-message">No hay platos en el pedido.</td>
+          </tr>
+          <tr *ngFor="let item of currentOrderItems; let i = index" style="color: white;">
+            <td>{{ item.nombre}}</td>
+            <td>
+              <input type="number" [(ngModel)]="item.cantidad" name="cantidad_{{i}}" min="1"
+                (change)="updateQuantity(item)" class="quantity-input">
+            </td>
+            <td>
+              <input type="text" [(ngModel)]="item.comentario" name="comentario_{{i}}"
+                placeholder="Ej: sin cebolla, poco picante" class="comment-input">
+            </td>
+            <td>
+              <button type="button" class="btn-remove" (click)="removeItem(item.idplato)">X</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="order-actions">
+        <button type="submit" class="btn-place-order" [disabled]="currentOrderItems.length === 0">Realizar
+          Pedido</button>
+      </div>
+    </form>
   </div>
 </main>
 

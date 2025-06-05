@@ -1,4 +1,5 @@
 ﻿using FramaFoodBE.Models;
+using FramaFoodBE.Models.ViewModels;
 using FramaFoodBE.Services;
 using FramaFoodBE.ServicesInterfaz;
 using Microsoft.AspNetCore.Http;
@@ -41,28 +42,38 @@ namespace FramaFoodBE.Controllers
         [HttpPost("CreateOrder")]
         public async Task<ActionResult> CreateOrder([FromBody] CreatePedidoDto orderDto)
         {
+            var pedido = new Pedido();
+
             if (orderDto == null)
             {
                 return BadRequest("El pedido no puede estar vacío o sin detalles de platos.");
             }
 
-            var pedido = new Pedido
-            {
-                IdMesa = orderDto.IDMESA,
-                IdMesera = orderDto.IDMESERA,
-                FechaHora = DateTime.Now,
-                Comentario = orderDto.comentario ?? "",
-                Cantidad = orderDto.cantidad,
-                Estado = "PEND"
-            };
+            var resultado = (await _serviceGeneral.ObtenerDatosConFiltro<Mesa>(x => x.IdMesa == orderDto.IDMESA)).FirstOrDefault();
 
-            await _serviceGeneral.Creacion(pedido);
+            if(resultado.Estado != "OCU")
+            {
+                pedido = new Pedido
+                {
+                    IdMesa = orderDto.IDMESA,
+                    IdMesera = orderDto.IDMESERA,
+                    FechaHora = DateTime.Now,
+                    Estado = "PEND"
+                };
+
+                await _serviceGeneral.Creacion(pedido);
+                var MesaEstatus = await _serviceGeneral.Editar(resultado.Estado = "OCU");
+            }
+            else
+            {
+                pedido = (await _serviceGeneral.ObtenerDatosConFiltro<Pedido>(x => x.IdMesa == orderDto.IDMESA)).FirstOrDefault();
+            }
 
             foreach (var detalleDto in orderDto.Detalles)
             {
                 var detallePedido = new Detallepedido
                 {
-                    IdPedido = pedido.IdPedido,
+                    IdPedido = pedido.IdPedido ,
                     IdPlato = detalleDto.Idplato,
                     Cantidad = detalleDto.Cantidad,
                     Comentario = detalleDto.Comentario,

@@ -23,13 +23,6 @@ public class Pedido
     [Column("FECHAHORA")]
     public DateTime FechaHora { get; set; }
 
-    [Column("COMENTARIO")]
-    public string Comentario { get; set; }
-
-    [Required]
-    [Column("CANTIDAD")]
-    public int Cantidad { get; set; }
-
     [Required]
     [Column("ESTADO")]
     public string Estado { get; set; }
