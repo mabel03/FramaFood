@@ -1,27 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace FramaFoodBE.Models;
 
-public partial class Usuario
+public class Usuario
 {
+    [Key]
+    [Column("IDUSUARIO")]
     public int Idusuario { get; set; }
 
+    [Required]
+    [Column("IDROL")]
     public int Idrol { get; set; }
 
-    public string Nombre { get; set; } = null!;
+    [ForeignKey("Idrol")]
+    public virtual Role Role { get; set; }
 
-    public string Usuariologin { get; set; } = null!;
+    [Required]
+    [Column("NOMBRE")]
+    [StringLength(100)]
+    public string Nombre { get; set; }
 
-    public string Contrasena { get; set; } = null!;
+    [Required]
+    [Column("USUARIOLOGIN")]
+    [StringLength(50)]
+    public string Usuariologin { get; set; }
 
-    public bool Estado { get; set; }
+    [Required]
+    [Column("CONTRASENA")]
+    [StringLength(255)]
+    public string Contrasena { get; set; }
 
-    public virtual ICollection<Detallepedido> Detallepedidos { get; set; } = new List<Detallepedido>();
-
-    public virtual ICollection<Factura> Facturas { get; set; } = new List<Factura>();
-
-    public virtual Role IdrolNavigation { get; set; } = null!;
-
-    public virtual ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
+    [Required]
+    [Column("ESTADO")]
+    public bool Estado { get; set; } = true;
 }

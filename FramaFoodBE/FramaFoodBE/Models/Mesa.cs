@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace FramaFoodBE.Models;
 
-public partial class Mesa
+public class Mesa
 {
-    public int Idmesa { get; set; }
+    [Key]
+    [Column("IDMESA")]
+    public int IdMesa { get; set; }
 
-    public string Numero { get; set; } = null!;
+    [Required]
+    [Column("NUMERO")]
+    public string Numero { get; set; }
 
+    [Required]
+    [Column("CANTIDAD_SILLA")]
     public int CantidadSilla { get; set; }
 
-    public string Estado { get; set; } = null!;
-
-    public virtual ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
+    [Required]
+    [Column("ESTADO")]
+    public string Estado { get; set; }
 }

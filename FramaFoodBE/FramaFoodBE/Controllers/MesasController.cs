@@ -1,5 +1,6 @@
 ﻿using FramaFoodBE.Models;
 using FramaFoodBE.Services;
+using FramaFoodBE.ServicesInterfaz;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,8 +10,7 @@ namespace FramaFoodBE.Controllers
     [ApiController]
     public class MesasController : ControllerBase
     {
-        private ServiceGeneral service;
-
+        private readonly ServiceGeneral service;
         public MesasController(ServiceGeneral service) 
         {
             this.service = service;

@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace FramaFoodBE.Models;
 
-public partial class Role
+public class Role
 {
+    [Key]
+    [Column("IDROL")]
     public int Idrol { get; set; }
 
-    public string Nombre { get; set; } = string.Empty;
-
-    public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
+    [Required]
+    [Column("NOMBRE")]
+    [StringLength(50)]
+    public string Nombre { get; set; }
 }

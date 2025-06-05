@@ -1,21 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace FramaFoodBE.Models;
 
-public partial class Plato
+public class Plato
 {
-    public int Idplato { get; set; }
+    [Key]
+    [Column("IDPLATO")]
+    public int IdPlato { get; set; }
 
-    public string Nombre { get; set; } = null!;
+    [Required]
+    [Column("NOMBRE")]
+    public string Nombre { get; set; }
 
-    public string Descripcion { get; set; } = null!;
+    [Required]
+    [Column("DESCRIPCION")]
+    public string Descripcion { get; set; }
 
+    [Required]
+    [Column("PRECIO")]
     public decimal Precio { get; set; }
 
-    public string Categoria { get; set; } = null!;
-
-    public virtual ICollection<Detallepedido> Detallepedidos { get; set; } = new List<Detallepedido>();
-
-    public virtual ICollection<Receta> Receta { get; set; } = new List<Receta>();
+    [Required]
+    [Column("CATEGORIA")]
+    public string Categoria { get; set; }
 }
