@@ -8,7 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PanelChefComponent } from './components/panel-chef/panel-chef.component';
 import { PedidoMeseraChefComponent } from './components/pedido-mesera-chef/pedido-mesera-chef.component';
 import { HomeComponent } from './components/home/home.component';
-import { hasRoleGuard } from './guards/has-role.guard';
+//import { hasRoleGuard } from './guards/has-role.guard';
 
 export const routes: Routes = [
     { path:'', component:HomeComponent },

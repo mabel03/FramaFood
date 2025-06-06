@@ -1,1 +1,1 @@
-export const enviroment = {url:'http://localhost:7263/api/'};
+export const enviroment = {url:'http://localhost:5164/api/'};

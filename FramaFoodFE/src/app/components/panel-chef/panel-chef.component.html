@@ -1,4 +1,4 @@
-<div class="contenedor">
+<!--<div class="contenedor">
     <div class="contenedorGrid">
         <div class="pedidos">
             <h1>Pedidos Pendientes</h1>
@@ -22,4 +22,74 @@
             </div>
         </div>
     </div>
+</div>-->
+
+
+<main class="pedidos-container">
+  <div class="pedidos-section pendientes">
+    <h2>Pedidos Pendientes</h2>
+    <div class="pedidos-list">
+      <div class="pedido-card" *ngFor="let pedido of pedidosPendientes">
+        <h3>Pedido #{{ pedido.idPedido }}</h3>
+        <p>Mesa: {{ pedido.numeroMesa }}</p>
+        <p>Platos: {{ pedido.cantidadPlatos }}</p>
+        <button class="btn-detalle" (click)="openDetallePedidoModal(pedido)">Ver Detalles</button>
+      </div>
+      <div *ngIf="pedidosPendientes.length === 0" class="no-pedidos">
+        No hay pedidos pendientes.
+      </div>
+    </div>
+  </div>
+
+  <div class="pedidos-section listos">
+    <h2>Pedidos Listos</h2>
+    <div class="pedidos-list">
+      <div class="pedido-card" *ngFor="let pedido of pedidosListos">
+        <h3>Pedido #{{ pedido.idPedido }}</h3>
+        <p>Mesa: {{ pedido.numeroMesa }}</p>
+        <p>Platos: {{ pedido.cantidadPlatos }}</p>
+        <button class="btn-detalle" (click)="openPedidoListoModal(pedido)">Entregar Pedido</button>
+      </div>
+      <div *ngIf="pedidosListos.length === 0" class="no-pedidos">
+        No hay pedidos listos.
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="modal" [class.show]="showDetallePedidoModal">
+  <div class="modal-content">
+    <span class="close-button" (click)="closeDetallePedidoModal()">&times;</span>
+    <h3>Detalles del Pedido #{{ selectedPedido?.idPedido }}</h3>
+    <p><strong>Mesa:</strong> {{ selectedPedido?.numeroMesa }}</p>
+    <p><strong>Código de Pedido:</strong> {{ selectedPedido?.idPedido }}</p>
+    <h4>Platos:</h4>
+    <ul>
+      <li *ngFor="let plato of selectedPedido?.detallePlatos">
+        {{ plato.cantidad }}x {{ plato.nombrePlato }} ({{ plato.estadoDetalle }})
+      </li>
+    </ul>
+    <div class="modal-actions">
+      <button class="btn" (click)="closeDetallePedidoModal()">Cerrar</button>
+      <!-- <button class="btn btn-primary" (click)="markPedidoAsReady(selectedPedido)">Marcar como Listo</button> -->
+    </div>
+  </div>
+</div>
+
+<div class="modal" [class.show]="showPedidoListoModal">
+  <div class="modal-content">
+    <span class="close-button" (click)="closePedidoListoModal()">&times;</span>
+    <h3>Pedido Listo para la Mesa {{ selectedPedido?.numeroMesa }}</h3>
+    <p>¡El pedido **#{{ selectedPedido?.idPedido }}** está listo para ser entregado!</p>
+    <h4>Resumen del Pedido:</h4>
+    <ul>
+      <li *ngFor="let plato of selectedPedido?.detallePlatos">
+        {{ plato.cantidad }}x {{ plato.nombrePlato }}
+      </li>
+    </ul>
+    <div class="modal-actions">
+      <button class="btn" (click)="closePedidoListoModal()">Cancelar</button>
+      <button class="btn btn-primary" (click)="confirmarEntrega(selectedPedido)">Confirmar Entrega</button>
+    </div>
+  </div>
 </div>

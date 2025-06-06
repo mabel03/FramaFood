@@ -1,8 +1,10 @@
 /* Header/Navbar */
 .navbar {
-    background-color: #000; /* Black background for the header */
+    background-color: #000;
+    /* Black background for the header */
     padding: 15px 0;
-    position: fixed; /* Keep navbar at the top */
+    position: fixed;
+    /* Keep navbar at the top */
     width: 100%;
     z-index: 1000;
 }
@@ -39,5 +41,52 @@
 }
 
 .nav-links ul li a:hover {
-    color: #d4af37; /* Example hover color */
+    color: #d4af37;
+    /* Example hover color */
+}
+
+.MenuIzquierda {
+    position: fixed;
+    /* Lo fija al lado izquierdo de la pantalla */
+    top: -4px;
+    left: 165px;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.buscador {
+    width: 400px;
+    height: 32px;
+    border: 1px solid #ccc;
+    padding: 1px;
+    margin: 0px 0px 0px 20px;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.button_slide {
+    color: #FFF;
+    border: 2px solid orange;
+    border-radius: 0px;
+    padding: 5px 25px;
+    font-size: 14px;
+    box-shadow: inset 0 0 0 0 #f2af06;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+}
+
+
+.slide_down:hover {
+    box-shadow: inset 0 100px 0 0 #f2af06;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: #ccc;
 }

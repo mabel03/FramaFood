@@ -35,11 +35,15 @@ export class LoginComponent {
       this._LoginService
         .Login(this.loginForm.value.Usuario, this.loginForm.value.Pass)
         .subscribe((a) => {
+          console.log(a)
           if (a) {
             if (a.rol === 'CHEF') {
               this.router.navigate(['/chef']);
+              this._LoginService.setUserName(a.nombreUsuario)
             } if(a.rol === 'MESERA') {
               this.router.navigate(['/Mesas']);
+              this._LoginService.setUserName(a.nombreUsuario)
+              this._LoginService.setRolName(a.rol)
             }
           }
         });

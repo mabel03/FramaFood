@@ -1,16 +1,24 @@
 <header class="navbar">
   <div class="container">
     <div class="logo">
-      <ul>
-        <li ><a (click)="irMenu()" style="color: white;font-size: 25px;">FramaFood</a></li>
+      <ul style="color: white;font-size: 25px;">
+        FramaFood
       </ul>
     </div>
-    <div class="MenuIzquierda">
-      <div class="button_slide slide_down" style="color: white;font-size: 15px;">
+    <nav class="nav-links">
+      <div *ngIf="Rol === 'MESERA'" class="MenuIzquierda">
+        <div class="button_slide slide_down" style="color: white;font-size: 15px;">
           <ul style="color: white;font-size: 15px;">
-            <a (click)="irPedidoMeseraChef()">Pedidos Realizados</a>
+            <a style="cursor: pointer;" routerLink="/Pedidos/chef" (click)="irPedidoMeseraChef()">Pedidos Realizados</a>
           </ul>
-      </div>
-    </div>
+        </div>
+      </div>      
+      <ul *ngIf="userName">
+        <li></li>
+        <li style="color: white;font-size: 18px;"> {{ fecha | date:'shortDate' }} | {{ userName }}!</li><!--Mabel Cabrera-->
+        <li style="color: white;font-size: 18px;"><a class="fas fa-sign-out-alt cursor" title="Cerrar sesión" (click)="logout()" routerLink="/login"></a></li>
+        <li></li>
+      </ul>
+    </nav>
   </div>
 </header>

@@ -18,6 +18,7 @@ namespace FramaFoodBE.Controllers
         private readonly ServiceGeneral service;
         private readonly DbFramafoodContext _context;
         private readonly IConfiguration _configuration;
+        private readonly UsuarioService _usuarioService;
 
 
         public UsuariosController(ServiceGeneral service, DbFramafoodContext context, IConfiguration configuration)
@@ -49,6 +50,7 @@ namespace FramaFoodBE.Controllers
         public async Task<ActionResult<IEnumerable<Usuario>>> ObtenerUsuarios()
         {
             var resultado = await service.ObtenerDatos<Usuario>();
+            //var usuarioLoger = await ObtenerUsuarioActual();
             return Ok(resultado);
         }
 
@@ -75,6 +77,8 @@ namespace FramaFoodBE.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        
 
     }
 }
