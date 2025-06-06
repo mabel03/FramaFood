@@ -45,6 +45,7 @@ packages/
 FramaFoodBE/FramaFoodBE/bin/
 FramaFood/FramaFoodBE/.vs/
 FramaFood/FramaFood/FramaFoodFE/src/env.ts/
+FramaFoodBE/FramaFoodBE/appsettings.json
 **/.vs/
 **/obj/
 **/bin/
