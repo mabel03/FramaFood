@@ -47,27 +47,17 @@ namespace FramaFoodBE.Services
 
         public async Task<Usuario?> ObtenerUsuarioActual()
         {
-            var User = _httpContextAccessor.HttpContext?.User;
-            if (User == null)
-            {
-                return null;
-            }
-
-            var userIdClaim = User.Claims.FirstOrDefault(x => x.Type == "id");
+            var userIdClaim = _httpContextAccessor.HttpContext?.User?.Claims
+                .FirstOrDefault(c => c.Type == "id");
             if (userIdClaim == null)
-            {
                 return null;
-            }
 
             if (!int.TryParse(userIdClaim.Value, out int userId))
-            {
                 return null;
-            }
 
             return await _dbFramafoodContext.Usuarios
-                .Include(x => x.Role)
+                .Include(u => u.Role)
                 .FirstOrDefaultAsync(u => u.Idusuario == userId);
-
         }
     }
 }

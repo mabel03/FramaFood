@@ -61,7 +61,7 @@ namespace FramaFoodBE.Controllers
                         IdPlato = dp.IdPlato,
                         NombrePlato = dp.Plato?.Nombre,
                         Cantidad = dp.Cantidad,
-                        EstadoDetalle = dp.Estado,
+                        Estado = dp.Estado,
                         Comentario = dp.Comentario,
                         IdChef = dp.IdChef
                     }).ToList(),

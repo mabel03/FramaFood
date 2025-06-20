@@ -26,10 +26,12 @@ export class HeaderLoginComponent {
 
     this.rolSubscript = this._usuariosService.RolName$.subscribe(x => {
       this.Rol = x
-      console.log(this.Rol, "Rol")
     })
 
-    
+    this.userName = localStorage.getItem('userName')
+    this.Rol = localStorage.getItem('userRol')
+
+    console.log(this.Rol)
   }
 
   irPedidoMeseraChef() {

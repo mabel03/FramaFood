@@ -16,6 +16,8 @@ public class Detallepedido
     [Required]
     [Column("IDPEDIDO")]
     public int IdPedido { get; set; }
+    [ForeignKey("IdPedido")]
+    public virtual Pedido Pedido { get; set; }
 
     [Required]
     [Column("IDPLATO")]
@@ -35,8 +37,7 @@ public class Detallepedido
     [Column("ESTADO")]
     public string Estado { get; set; }
 
-    [ForeignKey("IdPedido")]
-    public virtual Pedido Pedido { get; set; }
+    
 
     [ForeignKey("IdPlato")]
     public virtual Plato Plato { get; set; }

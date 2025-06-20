@@ -423,6 +423,7 @@ main.mesas-content {
     padding: 100px 20px 40px 20px; /* Adjust padding-top for fixed navbar */
     background-color: #000;
     min-height: calc(100vh - 200px); /* Adjust to fill available space */
+    margin: 0px 0px 0px 0px;
 }
 
 .pedidos-section {
@@ -431,6 +432,7 @@ main.mesas-content {
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 10px;
 }
 
 .pedidos-section h2 {
@@ -638,4 +640,76 @@ main.mesas-content {
     background-color: #f2af06;
     border-color: #f2af06;
     color: #000;
+}
+
+/* Estilos del Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Asegura que esté por encima de otros contenidos */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: #333; /* Texto oscuro para legibilidad */
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #d4af37;
+}
+
+.btn-close-modal {
+    background-color: #f44336; /* Color rojo para el botón de cerrar */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-close-modal:hover {
+    background-color: #d32f2f;
+}
+
+/*********************************************************/
+.container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.list, .dropzone {
+  width: 45%;
+  border: 2px dashed #ccc;
+  padding: 20px;
+  min-height: 200px;
+  border-radius: 8px;
+}
+
+.item {
+  padding: 10px;
+  margin: 5px;
+  background: #f0f0f0;
+  cursor: move;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+.dropped {
+  background-color: #c8f7c5;
 }

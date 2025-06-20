@@ -48,7 +48,9 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ServiceGeneral>();
+builder.Services.AddScoped<UsuarioService>();
 
 
 var app = builder.Build();

@@ -40,10 +40,15 @@ export class LoginComponent {
             if (a.rol === 'CHEF') {
               this.router.navigate(['/chef']);
               this._LoginService.setUserName(a.nombreUsuario)
+              this._LoginService.setUser(a.usuario)
+              localStorage.setItem("userName", a.nombreUsuario)
+              localStorage.setItem('User', a.usuario)
             } if(a.rol === 'MESERA') {
               this.router.navigate(['/Mesas']);
               this._LoginService.setUserName(a.nombreUsuario)
               this._LoginService.setRolName(a.rol)
+              this._LoginService.setUser(a.usuario)
+              localStorage.setItem('User', a.usuario)
             }
           }
         });

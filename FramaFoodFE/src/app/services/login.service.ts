@@ -13,6 +13,9 @@ export class LoginService {
   private RolNameSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
   public RolName$: Observable<string | null> = this.RolNameSubject.asObservable(); 
 
+  private userSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
+  public user$: Observable<string | null> = this.userSubject.asObservable(); 
+
   private url = 'http://localhost:5164/api/Usuarios/Login'
   private _user = new BehaviorSubject<boolean | null>(null);
   currentUser$ = this._user.asObservable();
@@ -29,6 +32,7 @@ export class LoginService {
 
   setUserName(name: string): void {
     this.userNameSubject.next(name);
+    localStorage.setItem('userName', name)
   }
 
   getUserName(): string | null {
@@ -44,9 +48,19 @@ export class LoginService {
     return this.RolNameSubject.getValue();
   }
 
+  setUser(user: string): void {
+    this.RolNameSubject.next(user);
+    localStorage.setItem('User', user)
+  }
+
+  getUser(): string | null {
+    return this.RolNameSubject.getValue();
+  }
+
   clearUserName(){
     this.userNameSubject.next(null);
     this.RolNameSubject.next(null);
     localStorage.removeItem('userRol');
+    localStorage.removeItem('userName');
   }
 }

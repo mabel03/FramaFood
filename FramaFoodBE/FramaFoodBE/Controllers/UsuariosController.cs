@@ -21,11 +21,12 @@ namespace FramaFoodBE.Controllers
         private readonly UsuarioService _usuarioService;
 
 
-        public UsuariosController(ServiceGeneral service, DbFramafoodContext context, IConfiguration configuration)
+        public UsuariosController(ServiceGeneral service, DbFramafoodContext context, IConfiguration configuration, UsuarioService usuarioService)
         {
             this.service = service;
             this._context = context;
             this._configuration = configuration;
+            this._usuarioService = usuarioService;
         }
 
 
@@ -42,7 +43,7 @@ namespace FramaFoodBE.Controllers
             }
 
             var token = GenerarToken(user);
-            return Ok(new { Token = token, Rol = user.Role.Nombre , NombreUsuario= user.Nombre});
+            return Ok(new { Token = token, Rol = user.Role.Nombre , NombreUsuario= user.Nombre, usuario=user.Usuariologin});
         }
 
 
@@ -78,7 +79,20 @@ namespace FramaFoodBE.Controllers
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        
+
+        [HttpGet("ObtenerUsuarioActual")]
+        public async Task<IActionResult> UsuarioActural()
+        {
+            var usuario = await _usuarioService.ObtenerUsuarioActual();
+            if(usuario == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(usuario);
+        }
+
+
 
     }
 }
